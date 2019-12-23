@@ -10,7 +10,7 @@ public class Condition {
     }
 
     public boolean trigger(ApproveRequest request) {
-        if (upper < lower) {
+        if (upper == lower) {
             return request.getPrice() >= lower;
         } else {
             return request.getPrice() >= lower && request.getPrice() < upper;

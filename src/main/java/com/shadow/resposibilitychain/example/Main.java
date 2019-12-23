@@ -20,10 +20,10 @@ public class Main {
         ApproveRequest request = new ApproveRequest(499);
         List<Approve> list = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            Approver approver1 = new Approver("执行者" + i, new Condition(i * step, (i + 1) * step));
+            Approve approver1 = new Approve("执行者" + i, new Condition(i * step, (i + 1) * step));
             list.add(approver1);
         }
-        list.add(new Approver("执行者" + list.size(), new Condition(list.size() * step, 0)));
+        list.add(new Approve("执行者" + list.size(), new Condition(list.size() * step, 0)));
         chain(list.toArray(new Approve[0]));
         list.get(4).processRequest(request);
     }
@@ -31,10 +31,10 @@ public class Main {
 
     @Test
     public void test() {
-        ApproveRequest request = new ApproveRequest(49919);
-        Approver approver1 = new Approver("教导主任", new Condition(0, 5000));
-        Approver approver2 = new Approver("副校长", new Condition(5000, 10000));
-        Approver approver3 = new Approver("校长", new Condition(10000, 0));
+        ApproveRequest request = new ApproveRequest(491919);
+        Approve approver1 = new Approve("教导主任", new Condition(0, 5000));
+        Approve approver2 = new Approve("副校长", new Condition(5000, 10000));
+        Approve approver3 = new Approve("校长", new Condition(10000, 10000));
         chain(approver1, approver2, approver3);
         approver1.processRequest(request);
     }
